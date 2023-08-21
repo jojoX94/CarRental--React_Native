@@ -5,21 +5,18 @@
  * @format
  */
 
-import React from 'react';
-import {SafeAreaView, StyleSheet, Text, useColorScheme} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import React, {useEffect} from 'react';
+import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <Text style={styles.highlight}>Welcome hello world</Text>
+    <SafeAreaView>
+      <Text style={styles.highlight}>Welcome hello </Text>
     </SafeAreaView>
   );
 }
