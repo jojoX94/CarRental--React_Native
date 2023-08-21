@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "940111418525",
+    "project_id": "carrental--reactnative",
+    "storage_bucket": "carrental--reactnative.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940111418525:android:3ec1f7ace89a7f98f33074",
+        "android_client_info": {
+          "package_name": "com.carrental"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940111418525-op19v2ps1cm2psin9mh8o93ack112okq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMx9-fvopqLNh-czhODXT79E6iYe8ysGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940111418525-op19v2ps1cm2psin9mh8o93ack112okq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
