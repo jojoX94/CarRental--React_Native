@@ -5,6 +5,7 @@ import style from './customButtonStyle';
 interface Props {
   title: string;
   onPress: () => void;
+  disabled?: boolean;
   style?: ViewStyle;
   type?: 'outlined' | 'filled' | 'rounded' | 'clear';
 }
@@ -12,6 +13,7 @@ interface Props {
 function CustomButton(props: Props) {
   return (
     <TouchableOpacity
+      disabled={props.disabled}
       style={[
         style.container,
         props.type === 'outlined' && style.outlined,
@@ -37,6 +39,7 @@ function CustomButton(props: Props) {
 CustomButton.defaultProps = {
   type: 'outlined',
   style: {},
+  disabled: false,
 };
 
 export default CustomButton;

@@ -12,7 +12,7 @@ import {Colors} from '../../constants/colors';
 import Assets from '../../constants/assets';
 
 type propsType = {
-  icon: ImageSourcePropType;
+  icon?: ImageSourcePropType | null;
   label: string;
   value: string;
   onChange: (text: string) => void;
@@ -42,7 +42,7 @@ function CustomTextfield(props: propsType) {
   return (
     <View style={style.container}>
       <View style={[style.wrapper, {borderColor: getBorderColor()}]}>
-        <Image source={icon} style={style.icon} />
+        {icon && <Image source={icon} style={style.icon} />}
         <TextInput
           style={style.input}
           placeholder={label}
@@ -50,7 +50,7 @@ function CustomTextfield(props: propsType) {
           onChangeText={onChange}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          secureTextEntry={isSecureEntry}
+          secureTextEntry={isSecure ? isSecureEntry : false}
           placeholderTextColor={Colors.GRAY}
           {...other}
         />
@@ -76,6 +76,7 @@ function CustomTextfield(props: propsType) {
 }
 
 CustomTextfield.defaultProps = {
+  icon: null,
   isSecure: false,
   error: false,
   helperText: '',

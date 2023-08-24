@@ -14,6 +14,7 @@ import {useEffect, useState} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import CustomButton from '../../../components/button/customButton';
 import FooterLinks from '../../../components/footer/footerLinks';
+import {validateEmail, validatePassword} from '../../../utils/validation';
 
 function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -23,6 +24,15 @@ function LoginScreen() {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
+
+  const signIn = () => {
+    setIsSubmit(true);
+    if (validateEmail(email) && validatePassword(password)) {
+      console.log('success');
+    } else {
+      console.log('error');
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -44,7 +54,8 @@ function LoginScreen() {
               label={'Email'}
               value={email}
               onChange={setEmail}
-              error={email.length < 5 && isSubmit}
+              error={!validateEmail(email) && isSubmit}
+              helperText={'Please enter a valid email address'}
             />
             <CustomTextfield
               icon={Assets.icons.lock}
@@ -52,7 +63,10 @@ function LoginScreen() {
               value={password}
               onChange={setPassword}
               isSecure={true}
-              error={password.length < 5 && isSubmit}
+              error={!validatePassword(password) && isSubmit}
+              helperText={
+                'Please enter a valid password with 8 characters and 1 number and 1 letter'
+              }
             />
           </View>
           <View style={style.buttons}>
@@ -62,11 +76,7 @@ function LoginScreen() {
                 <Text style={style.forgotPasswordLink}>Click here</Text>
               </TouchableOpacity>
             </View>
-            <CustomButton
-              type={'filled'}
-              onPress={() => {}}
-              title={'Sign In'}
-            />
+            <CustomButton type={'filled'} onPress={signIn} title={'Sign In'} />
           </View>
         </View>
         <View style={style.footer}>
