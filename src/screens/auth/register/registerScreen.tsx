@@ -8,18 +8,26 @@ import {
   View,
 } from 'react-native';
 import Assets from '../../../constants/assets';
-import style from './loginScreenStyle';
 import CustomTextfield from '../../../components/textfield/customTextfield';
 import {useEffect, useState} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import FooterLinks from '../../../components/footer/footerLinks';
-import {validateEmail, validatePassword} from '../../../utils/validation';
+import {
+  validateEmail,
+  validateName,
+  validatePassword,
+} from '../../../utils/validation';
+import style from './registerScreenStyle';
+import {Dialog} from '@rneui/themed';
+import mock from '../../../../mock';
 import {Colors} from '../../../constants/colors';
 import LoadingButton from '../../../components/animateLoadingButton/LoadingButton';
 
-function LoginScreen() {
+function RegisterScreen() {
   const [showLoading, setShowLoading] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
 
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmit, setIsSubmit] = useState(false);
@@ -28,7 +36,7 @@ function LoginScreen() {
     SplashScreen.hide();
   }, []);
 
-  const signIn = () => {
+  const signUp = () => {
     setShowLoading(true);
     setIsSubmit(true);
     if (validateEmail(email) && validatePassword(password)) {
@@ -40,6 +48,14 @@ function LoginScreen() {
     setTimeout(() => {
       setShowLoading(false);
     }, 2000);
+  };
+
+  const openDialog = () => {
+    setShowDialog(true);
+  };
+
+  const closeDialog = () => {
+    setShowDialog(false);
   };
 
   return (
@@ -57,6 +73,14 @@ function LoginScreen() {
         </View>
         <View style={style.body}>
           <View style={style.inputs}>
+            <CustomTextfield
+              icon={Assets.icons.profile}
+              label={'Full Name'}
+              value={fullName}
+              onChange={setFullName}
+              error={!validateName(fullName) && isSubmit}
+              helperText={'Please enter a valid name'}
+            />
             <CustomTextfield
               icon={Assets.icons.mail}
               label={'Email'}
@@ -79,32 +103,49 @@ function LoginScreen() {
           </View>
           <View style={style.buttons}>
             <View style={style.forgotPassword}>
-              <Text style={style.forgotPasswordText}>Forgot Password?</Text>
-              <TouchableOpacity>
-                <Text style={style.forgotPasswordLink}>Click here</Text>
+              <Text style={style.forgotPasswordText}>I agree to the CarGo</Text>
+              <TouchableOpacity onPress={openDialog}>
+                <Text style={style.forgotPasswordLink}>
+                  {' '}
+                  Terms and Conditions{' '}
+                </Text>
               </TouchableOpacity>
             </View>
             <LoadingButton
               showLoading={showLoading}
               width={250}
               height={50}
-              title={'Sign In'}
+              title={'Sign Up'}
               backgroundColor={Colors.PRIMARY}
-              onPress={signIn}
+              onPress={signUp}
             />
           </View>
         </View>
         <View style={style.footer}>
           <FooterLinks
-            type={'signIn'}
-            title={'Sign in with'}
-            subtitle={"Don't have an account"}
-            buttonTitle={'Sign Up'}
+            type={'signUp'}
+            title={'Sign up with'}
+            subtitle={'Already have an account?'}
+            buttonTitle={'sign in'}
           />
         </View>
+        <Dialog
+          isVisible={showDialog}
+          onBackdropPress={closeDialog}
+          presentationStyle={'overFullScreen'}>
+          <Dialog.Title
+            titleStyle={style.dialogTitle}
+            title={'Terms and Conditions'}
+          />
+          <ScrollView
+            style={style.dialogContentContainer}
+            contentContainerStyle={style.dialogScroll}>
+            <Text style={style.dialogContent}>{mock.termsAndConditions}</Text>
+          </ScrollView>
+        </Dialog>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
-export default LoginScreen;
+export default RegisterScreen;

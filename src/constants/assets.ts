@@ -16,5 +16,6 @@ export default {
     my_password: require('../../assets/images/my_password_icon.png'),
     success: require('../../assets/images/success_icon.png'),
     completed: require('../../assets/images/completed_icon.png'),
+    mail: require('../../assets/images/mail_icon.png'),
   },
 };

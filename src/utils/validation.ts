@@ -1,3 +1,8 @@
+export const validateName = (name: string): boolean => {
+  const re = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+  return re.test(name);
+};
+
 export const validateEmail = (email: string): boolean => {
   const re = /\S+@\S+\.\S+/;
   return re.test(email);

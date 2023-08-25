@@ -6,8 +6,9 @@
  */
 
 import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import RegisterScreen from './src/screens/auth/register/registerScreen';
 
 function App() {
   useEffect(() => {
@@ -15,16 +16,10 @@ function App() {
   }, []);
 
   return (
-    <SafeAreaView>
-      <Text style={styles.highlight}>Welcome hello </Text>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <RegisterScreen />
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  highlight: {
-    fontFamily: 'Poppins-Light',
-  },
-});
 
 export default App;
