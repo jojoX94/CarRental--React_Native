@@ -8,7 +8,8 @@
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import RegisterScreen from './src/screens/auth/register/registerScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import AppStack from './src/navigators/appStack';
 
 function App() {
   useEffect(() => {
@@ -17,7 +18,9 @@ function App() {
 
   return (
     <SafeAreaProvider>
-      <RegisterScreen />
+      <NavigationContainer>
+        <AppStack />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
