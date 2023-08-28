@@ -20,13 +20,13 @@ const style = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
+    fontSize: 14,
+    fontFamily: 'Inter-Light',
     color: Colors.BLACK,
   },
   toggleVisibility: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
   },
   errorText: {
     fontSize: 12,
