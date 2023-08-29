@@ -70,6 +70,24 @@ const style = StyleSheet.create({
   dialogScroll: {
     paddingVertical: 16,
   },
+  sendEmailContainer: {
+    width: '80%',
+    alignItems: 'center',
+    backgroundColor: Colors.WHITE,
+    borderRadius: 8,
+  },
+  sendEmailText: {
+    marginVertical: 16,
+    marginBottom: 32,
+    paddingHorizontal: 32,
+    fontSize: 14,
+    fontFamily: 'Inter-Regular',
+    color: Colors.TEXT_LIGHT_GRAY,
+  },
+  emailImg: {
+    width: 200,
+    height: 185,
+  },
 });
 
 export default style;

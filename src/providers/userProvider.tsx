@@ -1,6 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
 import UserModel from '../models/userModel';
-import AuthService from '../services/auth/authService';
 import useAuthService from '../hooks/service';
 
 interface UserContextValue {

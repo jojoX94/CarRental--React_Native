@@ -22,40 +22,55 @@ import {Dialog} from '@rneui/themed';
 import mock from '../../../../mock';
 import {Colors} from '../../../constants/colors';
 import LoadingButton from '../../../components/animateLoadingButton/LoadingButton';
+import useAuthService from '../../../hooks/service';
+import {Overlay} from '@rneui/base';
+import CustomButton from '../../../components/button/customButton';
 
 function RegisterScreen({navigation}: any) {
   const [showLoading, setShowLoading] = useState(false);
-  const [showDialog, setShowDialog] = useState(false);
+  const [showTermDialog, setShowTermDialog] = useState(false);
+  const [showEmailDialog, setShowEmailDialog] = useState(false);
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmit, setIsSubmit] = useState(false);
 
+  const authService = useAuthService();
+
   useEffect(() => {
     SplashScreen.hide();
   }, []);
 
-  const signUp = () => {
-    setShowLoading(true);
-    setIsSubmit(true);
-    if (validateEmail(email) && validatePassword(password)) {
-      console.log('success');
-    } else {
-      console.log('error');
-    }
-
-    setTimeout(() => {
+  const signUp = async () => {
+    try {
+      setShowLoading(true);
+      setIsSubmit(true);
+      if (
+        validateName(fullName) &&
+        validateEmail(email) &&
+        validatePassword(password)
+      ) {
+        await authService.register(
+          fullName.trim(),
+          email.trim(),
+          password.trim(),
+        );
+        setShowEmailDialog(true);
+      }
       setShowLoading(false);
-    }, 2000);
+    } catch (error) {
+      setShowLoading(false);
+      console.log('RegisterScreen -> signUp -> error', error);
+    }
   };
 
   const openDialog = () => {
-    setShowDialog(true);
+    setShowTermDialog(true);
   };
 
   const closeDialog = () => {
-    setShowDialog(false);
+    setShowTermDialog(false);
   };
 
   const goToLoginScreen = () => {
@@ -135,7 +150,7 @@ function RegisterScreen({navigation}: any) {
           />
         </View>
         <Dialog
-          isVisible={showDialog}
+          isVisible={showTermDialog}
           onBackdropPress={closeDialog}
           presentationStyle={'overFullScreen'}>
           <Dialog.Title
@@ -149,6 +164,23 @@ function RegisterScreen({navigation}: any) {
           </ScrollView>
         </Dialog>
       </ScrollView>
+      <Overlay
+        isVisible={showEmailDialog}
+        overlayStyle={style.sendEmailContainer}>
+        <Image source={Assets.icons.send_mail} style={style.emailImg} />
+        <Text style={style.sendEmailText}>
+          We have sent you an email to verify your account Please check your
+          email
+        </Text>
+        <CustomButton
+          type="filled"
+          title={'Go to Login'}
+          onPress={() => {
+            setShowEmailDialog(false);
+            goToLoginScreen();
+          }}
+        />
+      </Overlay>
     </KeyboardAvoidingView>
   );
 }

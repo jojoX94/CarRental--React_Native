@@ -18,10 +18,17 @@ class FirebaseAuthProvider implements IAuthProvider {
     password: string,
   ): Promise<any> {
     try {
+      console.log('Email: ', email);
+      console.log('Password: ', password);
       const userCredential = await this.auth.createUserWithEmailAndPassword(
         email,
         password,
       );
+
+      // send email verification
+      await userCredential.user.sendEmailVerification();
+
+      await this.auth.signOut();
 
       return userCredential.user;
     } catch (error) {
