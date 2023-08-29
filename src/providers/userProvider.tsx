@@ -1,14 +1,13 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import UserModel from '../models/userModel';
+import AuthService from '../services/auth/authService';
 
-// Define the interface for the context value
 interface UserContextValue {
   user: UserModel | null;
   setUser: (user: UserModel | null) => void;
   isAuthentificated: boolean;
 }
 
-// Create the context
 const UserContext = createContext<UserContextValue>({
   user: null,
   setUser: () => {},
@@ -22,13 +21,27 @@ type Props = {
 const UserProvider = ({children}: Props) => {
   const [user, setUser] = useState<UserModel | null>(null);
   const isAuthentificated = user !== null;
+  const authService = AuthService.firebaseInstance();
 
-  // Create the context value object
   const contextValue: UserContextValue = {
     user,
     setUser,
     isAuthentificated,
   };
+
+  useEffect(() => {
+    getCurrentUser();
+  }, []);
+
+  async function getCurrentUser() {
+    try {
+      await authService.initialize();
+      const result = await authService.getCurrentUser();
+      setUser(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
