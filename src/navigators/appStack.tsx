@@ -1,8 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/homeScreen';
-import RegisterScreen from '../screens/auth/register/registerScreen';
 import {useContext} from 'react';
 import {UserContext} from '../providers/userProvider';
+import AuthStack from './authStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +13,11 @@ function AppStack() {
       {isAuthentificated ? (
         <Stack.Screen name="Home" component={HomeScreen} />
       ) : (
-        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen
+          name="Auth"
+          component={AuthStack}
+          options={{headerShown: false}}
+        />
       )}
     </Stack.Navigator>
   );

@@ -17,7 +17,7 @@ import {validateEmail, validatePassword} from '../../../utils/validation';
 import {Colors} from '../../../constants/colors';
 import LoadingButton from '../../../components/animateLoadingButton/LoadingButton';
 
-function LoginScreen() {
+function LoginScreen({navigation}: any) {
   const [showLoading, setShowLoading] = useState(false);
 
   const [email, setEmail] = useState('');
@@ -40,6 +40,10 @@ function LoginScreen() {
     setTimeout(() => {
       setShowLoading(false);
     }, 2000);
+  };
+
+  const goToRegisterScreen = () => {
+    navigation.navigate('Register');
   };
 
   return (
@@ -100,6 +104,7 @@ function LoginScreen() {
             title={'Sign in with'}
             subtitle={"Don't have an account"}
             buttonTitle={'Sign Up'}
+            buttonAction={goToRegisterScreen}
           />
         </View>
       </ScrollView>

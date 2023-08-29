@@ -1,10 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {
-  ActivityIndicator,
-  Animated,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ActivityIndicator, Animated, Pressable, View} from 'react-native';
 
 interface LoadingButtonProps {
   showLoading: boolean;
@@ -67,7 +62,7 @@ const LoadingButton: React.FC<LoadingButtonProps> = ({
 
   return (
     <View style={{alignItems: 'center'}}>
-      <TouchableOpacity onPress={onPress}>
+      <Pressable onPress={onPress}>
         <Animated.View
           style={[
             {
@@ -95,7 +90,7 @@ const LoadingButton: React.FC<LoadingButtonProps> = ({
             </Animated.Text>
           )}
         </Animated.View>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };

@@ -35,7 +35,6 @@ const UserProvider = ({children}: Props) => {
 
   async function getCurrentUser() {
     try {
-      await authService.initialize();
       const result = await authService.getCurrentUser();
       setUser(result);
     } catch (error) {

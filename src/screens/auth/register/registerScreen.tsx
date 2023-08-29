@@ -23,7 +23,7 @@ import mock from '../../../../mock';
 import {Colors} from '../../../constants/colors';
 import LoadingButton from '../../../components/animateLoadingButton/LoadingButton';
 
-function RegisterScreen() {
+function RegisterScreen({navigation}: any) {
   const [showLoading, setShowLoading] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
 
@@ -56,6 +56,10 @@ function RegisterScreen() {
 
   const closeDialog = () => {
     setShowDialog(false);
+  };
+
+  const goToLoginScreen = () => {
+    navigation.navigate('Login');
   };
 
   return (
@@ -127,6 +131,7 @@ function RegisterScreen() {
             title={'Sign up with'}
             subtitle={'Already have an account?'}
             buttonTitle={'sign in'}
+            buttonAction={goToLoginScreen}
           />
         </View>
         <Dialog

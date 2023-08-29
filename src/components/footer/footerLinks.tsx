@@ -8,14 +8,25 @@ type FooterLinksProps = {
   title: string;
   subtitle: string;
   buttonTitle: string;
+  buttonAction: () => void;
 };
 
-function FooterLinks({type, title, subtitle, buttonTitle}: FooterLinksProps) {
+function FooterLinks({
+  type,
+  title,
+  subtitle,
+  buttonTitle,
+  buttonAction,
+}: FooterLinksProps) {
   const links = [
     {
       title: 'Facebook',
       icon: Assets.icons.facebook,
-      onPress: () => {},
+      onPress: () => {
+        if (type === 'signIn') {
+          console.log('sign in with facebook');
+        }
+      },
     },
     {
       title: 'Google',
@@ -50,7 +61,7 @@ function FooterLinks({type, title, subtitle, buttonTitle}: FooterLinksProps) {
       </View>
       <View style={style.forgotPassword}>
         <Text style={style.forgotPasswordText}>{subtitle}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={buttonAction}>
           <Text style={style.forgotPasswordLink}>{buttonTitle}</Text>
         </TouchableOpacity>
       </View>
