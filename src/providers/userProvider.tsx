@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react';
 import UserModel from '../models/userModel';
 import AuthService from '../services/auth/authService';
+import useAuthService from '../hooks/service';
 
 interface UserContextValue {
   user: UserModel | null;
@@ -21,7 +22,7 @@ type Props = {
 const UserProvider = ({children}: Props) => {
   const [user, setUser] = useState<UserModel | null>(null);
   const isAuthentificated = user !== null;
-  const authService = AuthService.firebaseInstance();
+  const authService = useAuthService();
 
   const contextValue: UserContextValue = {
     user,

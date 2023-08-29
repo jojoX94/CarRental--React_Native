@@ -4,8 +4,19 @@ import FirebaseAuthProvider from './providers/firebaseAuthProvider';
 class AuthService {
   private authProvider: IAuthProvider;
 
+  private static instance: AuthService;
+
   constructor(provider: IAuthProvider) {
     this.authProvider = provider;
+  }
+
+  static getInstance(
+    provider: IAuthProvider = new FirebaseAuthProvider(),
+  ): AuthService {
+    if (!AuthService.instance) {
+      AuthService.instance = new AuthService(provider);
+    }
+    return AuthService.instance;
   }
 
   static firebaseInstance() {
