@@ -10,7 +10,7 @@ import {
 import Assets from '../../../constants/assets';
 import style from './loginScreenStyle';
 import CustomTextfield from '../../../components/textfield/customTextfield';
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import FooterLinks from '../../../components/footer/footerLinks';
 import {validateEmail, validatePassword} from '../../../utils/validation';
@@ -24,6 +24,7 @@ import {
   EmailNotVerifiedError,
   WeakPasswordError,
 } from '../../../utils/errors/auth';
+import {UserContext} from '../../../providers/userProvider';
 
 function LoginScreen({navigation}: any) {
   const [showLoading, setShowLoading] = useState(false);
@@ -36,6 +37,7 @@ function LoginScreen({navigation}: any) {
   const [isSubmit, setIsSubmit] = useState(false);
 
   const authService = useAuthService();
+  const {setUser} = useContext(UserContext);
 
   useEffect(() => {
     SplashScreen.hide();
@@ -49,7 +51,7 @@ function LoginScreen({navigation}: any) {
         const user = await authService.login(email.trim(), password.trim());
 
         if (user) {
-          navigation.navigate('Home');
+          setUser(user);
         }
       }
       setShowLoading(false);

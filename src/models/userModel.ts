@@ -1,10 +1,10 @@
 interface UserModel {
   id: number;
-  name: string;
+  fullname: string;
   email: string;
   password: string;
   role: string;
-  created_at: Date;
+  createdAt: Date;
   updated_at: Date;
 }
 

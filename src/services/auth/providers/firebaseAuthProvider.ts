@@ -9,6 +9,7 @@ import {
   WeakPasswordError,
 } from '../../../utils/errors/auth';
 import authError from '../../../constants/authError';
+import UserModel from '../../../models/userModel';
 
 class FirebaseAuthProvider implements IAuthProvider {
   auth = firebase.auth();
@@ -72,9 +73,20 @@ class FirebaseAuthProvider implements IAuthProvider {
 
       // check if user is verified
       if (!userCredential.user.emailVerified) {
+        await userCredential.user.sendEmailVerification();
+        await this.auth.signOut();
         throw new EmailNotVerifiedError();
       }
-      return userCredential.user;
+
+      // get user from firestore where email is equal to the email provided
+      const user = await this.usersCollection.where('email', '==', email).get();
+
+      return {
+        id: user.docs[0].id,
+        fullname: user.docs[0].data().fullName,
+        email: user.docs[0].data().email,
+        createdAt: user.docs[0].data().createdAt,
+      } as unknown as UserModel;
     } catch (error) {
       throw error;
     }
