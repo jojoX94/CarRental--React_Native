@@ -1,5 +1,11 @@
 import {firebase} from '@react-native-firebase/auth';
 import IAuthProvider from './authProvider';
+import {FirebaseError} from '@firebase/util';
+import {
+  AuthError,
+  EmailAlreadyInUseError,
+  WeakPasswordError,
+} from '../../../utils/errors/auth';
 
 class FirebaseAuthProvider implements IAuthProvider {
   auth = firebase.auth();
@@ -31,8 +37,18 @@ class FirebaseAuthProvider implements IAuthProvider {
       await this.auth.signOut();
 
       return userCredential.user;
-    } catch (error) {
-      throw error;
+    } catch (error: any) {
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            throw new EmailAlreadyInUseError('Email is already in use');
+          case 'auth/weak-password':
+            throw new WeakPasswordError('Password is too weak');
+          default:
+            throw new AuthError('Authentication error', error.message);
+        }
+      }
+      throw new AuthError('Authentication error', error.message);
     }
   }
   async login(username: string, password: string): Promise<any> {

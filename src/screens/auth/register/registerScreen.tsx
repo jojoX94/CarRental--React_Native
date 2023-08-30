@@ -25,6 +25,11 @@ import LoadingButton from '../../../components/animateLoadingButton/LoadingButto
 import useAuthService from '../../../hooks/service';
 import {Overlay} from '@rneui/base';
 import CustomButton from '../../../components/button/customButton';
+import {
+  AuthError,
+  EmailAlreadyInUseError,
+  WeakPasswordError,
+} from '../../../utils/errors/auth';
 
 function RegisterScreen({navigation}: any) {
   const [showLoading, setShowLoading] = useState(false);
@@ -59,9 +64,17 @@ function RegisterScreen({navigation}: any) {
         setShowEmailDialog(true);
       }
       setShowLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setShowLoading(false);
-      console.log('RegisterScreen -> signUp -> error', error);
+      if (error instanceof EmailAlreadyInUseError) {
+        console.log('Email is already in use');
+      } else if (error instanceof WeakPasswordError) {
+        console.log('Password is too weak');
+      } else if (error instanceof AuthError) {
+        console.log('Authentication error:', error.code);
+      } else {
+        console.log('An error occurred:', error.message);
+      }
     }
   };
 

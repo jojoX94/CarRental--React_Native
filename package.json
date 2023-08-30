@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@firebase/util": "^1.9.3",
     "@gorhom/bottom-sheet": "4",
     "@react-native-firebase/app": "^18.3.1",
     "@react-native-firebase/auth": "^18.3.1",
