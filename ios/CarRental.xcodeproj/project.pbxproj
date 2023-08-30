@@ -34,6 +34,9 @@
 		B5A928379828427EA8AE6BB7 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90223BE3F5D64565B2BF72BC /* Poppins-Regular.ttf */; };
 		32B6AF0BCF4B4FB99D5919EE /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C0EE25A7B492F8BD755B8 /* Poppins-SemiBold.ttf */; };
 		188EE2F987AB4A2E834BDD39 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 938A509437E8465D87A56D59 /* Poppins-Thin.ttf */; };
+		F1CD8D714F154A59A1FB3465 /* Outfit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07ACA8B35ECB43E6A06397AE /* Outfit-Regular.ttf */; };
+		6017820A91C84F7D854C2581 /* Outfit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE89CC753D23425BA139B0D1 /* Outfit-SemiBold.ttf */; };
+		1E7497B578964359AD6BDD94 /* Outfit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2D3C4D907CB4DCCA6BF6FFD /* Outfit-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		90223BE3F5D64565B2BF72BC /* Poppins-Regular.ttf */ = {isa = PBXFileReference; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3A9C0EE25A7B492F8BD755B8 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		938A509437E8465D87A56D59 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; name = "Poppins-Thin.ttf"; path = "../assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		07ACA8B35ECB43E6A06397AE /* Outfit-Regular.ttf */ = {isa = PBXFileReference; name = "Outfit-Regular.ttf"; path = "../assets/fonts/Outfit-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE89CC753D23425BA139B0D1 /* Outfit-SemiBold.ttf */ = {isa = PBXFileReference; name = "Outfit-SemiBold.ttf"; path = "../assets/fonts/Outfit-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B2D3C4D907CB4DCCA6BF6FFD /* Outfit-Bold.ttf */ = {isa = PBXFileReference; name = "Outfit-Bold.ttf"; path = "../assets/fonts/Outfit-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +218,9 @@
 				90223BE3F5D64565B2BF72BC /* Poppins-Regular.ttf */,
 				3A9C0EE25A7B492F8BD755B8 /* Poppins-SemiBold.ttf */,
 				938A509437E8465D87A56D59 /* Poppins-Thin.ttf */,
+				07ACA8B35ECB43E6A06397AE /* Outfit-Regular.ttf */,
+				BE89CC753D23425BA139B0D1 /* Outfit-SemiBold.ttf */,
+				B2D3C4D907CB4DCCA6BF6FFD /* Outfit-Bold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -333,6 +342,9 @@
 				B5A928379828427EA8AE6BB7 /* Poppins-Regular.ttf in Resources */,
 				32B6AF0BCF4B4FB99D5919EE /* Poppins-SemiBold.ttf in Resources */,
 				188EE2F987AB4A2E834BDD39 /* Poppins-Thin.ttf in Resources */,
+				F1CD8D714F154A59A1FB3465 /* Outfit-Regular.ttf in Resources */,
+				6017820A91C84F7D854C2581 /* Outfit-SemiBold.ttf in Resources */,
+				1E7497B578964359AD6BDD94 /* Outfit-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

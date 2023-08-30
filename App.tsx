@@ -6,8 +6,11 @@
  */
 
 import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {NavigationContainer} from '@react-navigation/native';
+import AppStack from './src/navigators/appStack';
+import {UserProvider} from './src/providers/userProvider';
 
 function App() {
   useEffect(() => {
@@ -15,16 +18,14 @@ function App() {
   }, []);
 
   return (
-    <SafeAreaView>
-      <Text style={styles.highlight}>Welcome hello </Text>
-    </SafeAreaView>
+    <UserProvider>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <AppStack />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </UserProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  highlight: {
-    fontFamily: 'Poppins-Light',
-  },
-});
 
 export default App;
