@@ -1,3 +1,4 @@
+export class EmailNotVerifiedError extends Error {}
 export class EmailAlreadyInUseError extends Error {}
 export class WeakPasswordError extends Error {}
 export class AuthError extends Error {

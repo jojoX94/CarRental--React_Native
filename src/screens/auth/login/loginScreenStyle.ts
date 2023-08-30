@@ -54,6 +54,46 @@ const style = StyleSheet.create({
     paddingHorizontal: 32,
   },
   footerText: {},
+  errorDialogContainer: {
+    width: '80%',
+    backgroundColor: Colors.WHITE,
+    borderRadius: 8,
+  },
+  errorViewContainer: {
+    paddingVertical: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+  },
+  errorIcon: {
+    width: 48,
+    height: 48,
+    paddingVertical: 16,
+  },
+  errorText: {
+    fontSize: 14,
+    fontFamily: 'Inter-Regular',
+    color: Colors.TEXT_LIGHT_GRAY,
+    backgroundColor: Colors.WHITE,
+  },
+  sendEmailContainer: {
+    width: '80%',
+    alignItems: 'center',
+    backgroundColor: Colors.WHITE,
+    borderRadius: 8,
+  },
+  sendEmailText: {
+    marginVertical: 16,
+    marginBottom: 32,
+    paddingHorizontal: 32,
+    fontSize: 14,
+    fontFamily: 'Inter-Regular',
+    color: Colors.TEXT_LIGHT_GRAY,
+  },
+  emailImg: {
+    width: 200,
+    height: 185,
+  },
 });
 
 export default style;

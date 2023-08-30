@@ -18,5 +18,6 @@ export default {
     completed: require('../../assets/images/completed_icon.png'),
     mail: require('../../assets/images/mail_icon.png'),
     send_mail: require('../../assets/images/send_mail_icon.png'),
+    warning: require('../../assets/images/warning_icon.png'),
   },
 };

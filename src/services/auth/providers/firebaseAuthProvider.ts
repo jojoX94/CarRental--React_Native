@@ -5,6 +5,7 @@ import {FirebaseError} from '@firebase/util';
 import {
   AuthError,
   EmailAlreadyInUseError,
+  EmailNotVerifiedError,
   WeakPasswordError,
 } from '../../../utils/errors/auth';
 import authError from '../../../constants/authError';
@@ -68,6 +69,11 @@ class FirebaseAuthProvider implements IAuthProvider {
         email,
         password,
       );
+
+      // check if user is verified
+      if (!userCredential.user.emailVerified) {
+        throw new EmailNotVerifiedError();
+      }
       return userCredential.user;
     } catch (error) {
       throw error;
