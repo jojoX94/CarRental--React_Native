@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react';
 import UserModel from '../models/userModel';
 import useAuthService from '../hooks/service';
+import SplashScreen from 'react-native-splash-screen';
 
 interface UserContextValue {
   user: UserModel | null;
@@ -36,8 +37,13 @@ const UserProvider = ({children}: Props) => {
   async function getCurrentUser() {
     try {
       const result = await authService.getCurrentUser();
-      setUser(result);
+      if (result) {
+        setUser(result);
+      }
+
+      SplashScreen.hide();
     } catch (error) {
+      SplashScreen.hide();
       console.log(error);
     }
   }

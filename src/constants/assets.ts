@@ -1,5 +1,6 @@
 export default {
   images: {
+    welcome: require('../../assets/images/welcome_img.jpeg'),
     welcoming: require('../../assets/images/welcoming_img.png'),
     cloud: require('../../assets/images/cloud_img.png'),
   },
