@@ -19,7 +19,7 @@ function WelcomeScreen({navigation}: any) {
   );
 
   function goToTabNavigator() {
-    navigation.navigate('TabNavigator');
+    navigation.navigate('TabStack');
   }
 
   return (

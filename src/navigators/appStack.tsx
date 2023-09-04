@@ -2,7 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useContext} from 'react';
 import {UserContext} from '../providers/userProvider';
 import AuthStack from './authStack';
-import WelcomeScreen from '../screens/welcome/welcomeScreen';
+import HomeStack from './homeStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +13,7 @@ function AppStack() {
       {isAuthentificated ? (
         <Stack.Screen
           name="Home"
-          component={WelcomeScreen}
+          component={HomeStack}
           options={{headerShown: false}}
         />
       ) : (
