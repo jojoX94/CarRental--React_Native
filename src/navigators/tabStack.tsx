@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {Text, View, Switch, Image, ImageSourcePropType} from 'react-native';
+import {Text, View, Image, ImageSourcePropType} from 'react-native';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomFabBar} from 'rn-wave-bottom-bar';
@@ -24,6 +24,7 @@ import SettingBlackIcon from '../../assets/images/settings_black_icon.png';
 import NotifBlackIcon from '../../assets/images/notif_black_icon.png';
 import NotifIcon from '../../assets/images/notif_icon.png';
 import {Colors} from '../constants/colors';
+import CarStack from './carStack';
 
 const generateScreen = (screen: string) => () => {
   return (
@@ -59,26 +60,8 @@ const getTabBarIcon = (
 };
 
 const TabStack = () => {
-  const [showLabel, setShowLabel] = React.useState(false);
-  const [enableSquare, setEnableSquare] = React.useState(false);
-  const [isRtl, setIsRtl] = React.useState(false);
+  const showLabel = false;
 
-  const Home = () => (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Enable TabBar labels</Text>
-      <Switch
-        value={showLabel}
-        onValueChange={() => setShowLabel(!showLabel)}
-      />
-      <Text>Enable TabBar Square</Text>
-      <Switch
-        value={enableSquare}
-        onValueChange={() => setEnableSquare(!enableSquare)}
-      />
-      <Text>Enable RTL</Text>
-      <Switch value={isRtl} onValueChange={() => setIsRtl(!isRtl)} />
-    </View>
-  );
   return (
     <Tab.Navigator
       screenOptions={{
@@ -89,11 +72,11 @@ const TabStack = () => {
         tabBarLabelStyle: {
           color: Colors.WHITE,
         },
+        headerShown: false,
       }}
       tabBar={props => (
         <BottomFabBar
-          mode={enableSquare ? 'square' : 'default'}
-          isRtl={isRtl}
+          mode="default"
           // Add Shadow for active tab bar button
           focusedButtonStyle={{
             shadowColor: '#000',
@@ -128,7 +111,7 @@ const TabStack = () => {
           tabBarLabel: showLabel ? 'Home' : undefined,
         }}
         name="Home"
-        component={Home}
+        component={CarStack}
       />
       <Tab.Screen
         name="Meh"

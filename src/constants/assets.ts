@@ -3,6 +3,7 @@ export default {
     welcome: require('../../assets/images/welcome_img.jpeg'),
     welcoming: require('../../assets/images/welcoming_img.png'),
     cloud: require('../../assets/images/cloud_img.png'),
+    temp_face: require('../../assets/images/temp_face_img.png'),
   },
   icons: {
     profile: require('../../assets/images/profile_icon.png'),
@@ -20,5 +21,11 @@ export default {
     mail: require('../../assets/images/mail_icon.png'),
     send_mail: require('../../assets/images/send_mail_icon.png'),
     warning: require('../../assets/images/warning_icon.png'),
+    pin: require('../../assets/images/pin_icon.png'),
+    search: require('../../assets/images/search_icon.png'),
+    favorite_filled: require('../../assets/images/favorite_filled_icon.png'),
+    favorite_outlined: require('../../assets/images/favorite_outlined_icon.png'),
+    person: require('../../assets/images/person_icon.png'),
+    gear: require('../../assets/images/gear_icon.png'),
   },
 };
