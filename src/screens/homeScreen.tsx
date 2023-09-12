@@ -1,6 +1,6 @@
 import {Button} from '@rneui/base';
 import {Text, View} from 'react-native';
-import useAuthService from '../hooks/service';
+import {useAuthService} from '../hooks/service';
 
 function HomeScreen({navigation}: any) {
   const authService = useAuthService();

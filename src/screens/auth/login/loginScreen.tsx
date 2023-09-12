@@ -18,7 +18,7 @@ import {Colors} from '../../../constants/colors';
 import LoadingButton from '../../../components/animateLoadingButton/LoadingButton';
 import {Overlay} from '@rneui/themed';
 import CustomButton from '../../../components/button/customButton';
-import useAuthService from '../../../hooks/service';
+import {useAuthService} from '../../../hooks/service';
 import {
   AuthError,
   EmailNotVerifiedError,

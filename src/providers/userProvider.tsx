@@ -1,6 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 import UserModel from '../models/userModel';
-import useAuthService from '../hooks/service';
+import {useAuthService} from '../hooks/service';
 import SplashScreen from 'react-native-splash-screen';
 
 interface UserContextValue {
