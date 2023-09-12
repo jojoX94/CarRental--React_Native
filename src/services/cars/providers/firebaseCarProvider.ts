@@ -1,12 +1,23 @@
 import ICarProvider from './carProvider';
 import firestore from '@react-native-firebase/firestore';
 import CarModel from '../../../models/carModel';
+import mockData from '../../../utils/mockData/car';
 
 class FirebaseCarProvider implements ICarProvider {
   carsCollection = firestore().collection('cars');
 
   async initialize(): Promise<any> {
-    throw new Error('Method not implemented.');
+    try {
+      // count cars in firestore collection and if it is 0, then add cars where provided by CarModel array
+      const cars = await this.carsCollection.get();
+      if (cars.size === 0 || cars.size === 1) {
+        mockData.forEach(async car => {
+          await this.carsCollection.add(car);
+        });
+      }
+    } catch (error) {
+      throw error;
+    }
   }
 
   async getCars(): Promise<CarModel[]> {

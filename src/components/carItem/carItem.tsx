@@ -43,7 +43,10 @@ function CarItem({model}: CarItemProps) {
       />
       <View style={styles.footer}>
         <View style={styles.footerLeft}>
-          <Label source={assets.icons.person} label={'4'} />
+          <Label
+            source={assets.icons.person}
+            label={`${model.numberOfSeats}`}
+          />
           <Label source={assets.icons.gear} label={model.gearType} />
         </View>
         <View style={styles.footerRight}>

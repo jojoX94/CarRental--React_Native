@@ -1,14 +1,31 @@
-import {Image, Text, View} from 'react-native';
+import {FlatList, Image, Text, View} from 'react-native';
 import styles from './carListScreenStyle';
 import assets from '../../../constants/assets';
 import Avatar from '../../../components/avatar/avatar';
 import {SearchBar} from '@rneui/themed';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import CarItem from '../../../components/carItem/carItem';
+import {useCarService} from '../../../hooks/service';
+import CarModel from '../../../models/carModel';
 
 function CarListScreen() {
   const [search, setSearch] = useState('');
+  const [cars, setCars] = useState<CarModel[]>([]);
+  const carService = useCarService();
 
+  useEffect(() => {
+    async function getCars() {
+      try {
+        await carService.initialize();
+        const result = await carService.getCars();
+        setCars(result);
+      } catch (error) {
+        console.log('CarListScreen -> error', error);
+      }
+    }
+
+    getCars();
+  }, []);
   const updateSearch = (value: string) => {
     setSearch(value);
   };
@@ -59,20 +76,11 @@ function CarListScreen() {
             inputStyle={styles.searchInput}
           />
         </View>
-        <CarItem
-          model={{
-            name: 'Model 3',
-            brand: 'Tesla',
-            image:
-              'https://cdn.jdpower.com/ChromeImageGallery/Expanded/White/320/2023PRC16_320/2023PRC160013_320_01.jpg',
-            price: 100,
-            rating: 4.5,
-            isFavourite: false,
-            gearType: 'Auto',
-            fuelType: 'Electric',
-            color: 'Red',
-            numberOfSeats: 4,
-          }}
+        <FlatList
+          data={cars}
+          renderItem={({item}) => <CarItem model={item} />}
+          style={styles.list}
+          contentContainerStyle={{paddingBottom: 250}}
         />
       </View>
     </View>

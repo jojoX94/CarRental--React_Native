@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: 'black',
   },
+  list: {},
 });
 
 export default styles;

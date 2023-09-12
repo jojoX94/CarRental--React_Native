@@ -30,3 +30,5 @@ class CarService {
     return this.carProvider.getCars();
   }
 }
+
+export default CarService;
