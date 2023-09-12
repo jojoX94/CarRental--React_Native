@@ -22,7 +22,7 @@ import {Dialog} from '@rneui/themed';
 import mock from '../../../../mock';
 import {Colors} from '../../../constants/colors';
 import LoadingButton from '../../../components/animateLoadingButton/LoadingButton';
-import useAuthService from '../../../hooks/service';
+import {useAuthService} from '../../../hooks/service';
 import {Overlay} from '@rneui/base';
 import CustomButton from '../../../components/button/customButton';
 import {

@@ -15,8 +15,9 @@ const styles = StyleSheet.create({
     paddingVertical: 100,
   },
   text: {
+    paddingHorizontal: 16,
     color: Colors.WHITE,
-    fontSize: 30,
+    fontSize: 40,
     fontFamily: 'Poppins-Bold',
   },
 });
