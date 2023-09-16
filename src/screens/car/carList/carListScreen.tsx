@@ -1,4 +1,4 @@
-import {FlatList, Image, Text, View} from 'react-native';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from './carListScreenStyle';
 import assets from '../../../constants/assets';
 import Avatar from '../../../components/avatar/avatar';
@@ -38,6 +38,36 @@ function CarListScreen() {
     setFilteredCars(filtered);
   };
 
+  const renderSearchIcon = () => {
+    return (
+      <Image
+        source={assets.icons.search}
+        style={{
+          width: 24,
+          height: 24,
+        }}
+      />
+    );
+  };
+
+  const renderClearIcon = () => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          setSearch('');
+          setFilteredCars(cars);
+        }}>
+        <Image
+          source={assets.icons.clear}
+          style={{
+            width: 24,
+            height: 24,
+          }}
+        />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -70,15 +100,8 @@ function CarListScreen() {
             placeholder="Type Here..."
             onChangeText={updateSearch}
             value={search}
-            searchIcon={
-              <Image
-                source={assets.icons.search}
-                style={{
-                  width: 24,
-                  height: 24,
-                }}
-              />
-            }
+            searchIcon={renderSearchIcon()}
+            clearIcon={search.length > 0 && renderClearIcon()}
             inputContainerStyle={styles.searchInputContainer}
             containerStyle={styles.searchContainer}
             inputStyle={styles.searchInput}

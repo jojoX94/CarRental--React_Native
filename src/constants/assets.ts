@@ -27,5 +27,6 @@ export default {
     favorite_outlined: require('../../assets/images/favorite_outlined_icon.png'),
     person: require('../../assets/images/person_icon.png'),
     gear: require('../../assets/images/gear_icon.png'),
+    clear: require('../../assets/images/clear_icon.png'),
   },
 };
