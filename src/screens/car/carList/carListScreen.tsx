@@ -11,6 +11,8 @@ import CarModel from '../../../models/carModel';
 function CarListScreen() {
   const [search, setSearch] = useState('');
   const [cars, setCars] = useState<CarModel[]>([]);
+  const [filteredCars, setFilteredCars] = useState<CarModel[]>([]);
+
   const carService = useCarService();
 
   useEffect(() => {
@@ -19,6 +21,7 @@ function CarListScreen() {
         await carService.initialize();
         const result = await carService.getCars();
         setCars(result);
+        setFilteredCars(result);
       } catch (error) {
         console.log('CarListScreen -> error', error);
       }
@@ -28,6 +31,11 @@ function CarListScreen() {
   }, []);
   const updateSearch = (value: string) => {
     setSearch(value);
+    const filtered = cars.filter(car => {
+      return car.name.toLowerCase().includes(value.toLowerCase());
+    });
+
+    setFilteredCars(filtered);
   };
 
   return (
@@ -77,7 +85,7 @@ function CarListScreen() {
           />
         </View>
         <FlatList
-          data={cars}
+          data={filteredCars}
           renderItem={({item}) => <CarItem model={item} />}
           style={styles.list}
           contentContainerStyle={{paddingBottom: 250}}
