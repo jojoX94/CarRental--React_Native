@@ -4,11 +4,14 @@ import assets from '../../../constants/assets';
 import Avatar from '../../../components/avatar/avatar';
 import {SearchBar} from '@rneui/themed';
 import {useEffect, useState} from 'react';
-import CarItem from '../../../components/carItem/carItem';
 import {useCarService} from '../../../hooks/service';
 import CarModel from '../../../models/carModel';
+import CarItemSkeleton from '../../../components/skeleton/carItemSkeleton/carItemSkeleton';
+import CarItem from '../../../components/carItem/carItem';
 
 function CarListScreen() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [search, setSearch] = useState('');
   const [cars, setCars] = useState<CarModel[]>([]);
   const [filteredCars, setFilteredCars] = useState<CarModel[]>([]);
@@ -18,11 +21,15 @@ function CarListScreen() {
   useEffect(() => {
     async function getCars() {
       try {
+        setIsLoading(true);
+
         await carService.initialize();
         const result = await carService.getCars();
         setCars(result);
         setFilteredCars(result);
+        setIsLoading(false);
       } catch (error) {
+        setIsLoading(false);
         console.log('CarListScreen -> error', error);
       }
     }
@@ -68,6 +75,28 @@ function CarListScreen() {
     );
   };
 
+  const renderCarLoading = () => {
+    return (
+      <FlatList
+        data={[1, 2]}
+        renderItem={() => <CarItemSkeleton />}
+        style={styles.list}
+        contentContainerStyle={{paddingBottom: 250}}
+      />
+    );
+  };
+
+  const renderCarList = () => {
+    return (
+      <FlatList
+        data={filteredCars}
+        renderItem={({item}) => <CarItem model={item} />}
+        style={styles.list}
+        contentContainerStyle={{paddingBottom: 250}}
+      />
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -107,12 +136,8 @@ function CarListScreen() {
             inputStyle={styles.searchInput}
           />
         </View>
-        <FlatList
-          data={filteredCars}
-          renderItem={({item}) => <CarItem model={item} />}
-          style={styles.list}
-          contentContainerStyle={{paddingBottom: 250}}
-        />
+
+        {isLoading ? renderCarLoading() : renderCarList()}
       </View>
     </View>
   );
