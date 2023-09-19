@@ -10,7 +10,7 @@ import CarItemSkeleton from '../../../components/skeleton/carItemSkeleton/carIte
 import CarItem from '../../../components/carItem/carItem';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-function CarListScreen() {
+function CarListScreen({navigation}: any) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [search, setSearch] = useState('');
@@ -91,11 +91,20 @@ function CarListScreen() {
     return (
       <FlatList
         data={filteredCars}
-        renderItem={({item}) => <CarItem model={item} />}
+        renderItem={({item}) => (
+          <TouchableOpacity onPress={() => onPressCarItem(item)}>
+            <CarItem model={item} />
+          </TouchableOpacity>
+        )}
         style={styles.list}
         contentContainerStyle={{paddingBottom: 250}}
       />
     );
+  };
+
+  const onPressCarItem = (car: CarModel) => {
+    console.log('CarListScreen -> car', car);
+    navigation.navigate('CarDetailsScreen', {car});
   };
 
   return (
