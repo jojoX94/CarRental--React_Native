@@ -25,20 +25,8 @@ import NotifBlackIcon from '../../assets/images/notif_black_icon.png';
 import NotifIcon from '../../assets/images/notif_icon.png';
 import {Colors} from '../constants/colors';
 import CarStack from './carStack';
-
-const generateScreen = (screen: string) => () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-      }}>
-      <Text>{screen}!</Text>
-    </View>
-  );
-};
+import {Button} from '@rneui/base';
+import {useAuthService} from '../hooks/service';
 
 const Tab = createBottomTabNavigator();
 
@@ -59,9 +47,64 @@ const getTabBarIcon = (
   );
 };
 
+const BottomFabBarIcon = (props: any) => {
+  return (
+    <BottomFabBar
+      mode="default"
+      // Add Shadow for active tab bar button
+      focusedButtonStyle={{
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: -1,
+        },
+        shadowOpacity: 0.61,
+        shadowRadius: 8,
+        elevation: 14,
+      }}
+      // - You can add the style below to show content screen under the tab-bar
+      // - It will makes the "transparent tab bar" effect.
+      bottomBarContainerStyle={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+      }}
+      springConfig={{
+        stiffness: 1500,
+        damping: 85,
+        mass: 4,
+      }}
+      {...props}
+    />
+  );
+};
+
 const TabStack = () => {
+  const authService = useAuthService();
   const showLabel = false;
 
+  const generateScreen = (screen: string) => () => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'white',
+        }}>
+        <Text>{screen}!</Text>
+        <Button
+          onPress={() =>
+            // call sign out function from auth firebase for testing auth workflow
+
+            authService.logout()
+          }>
+          Sign out
+        </Button>
+      </View>
+    );
+  };
   return (
     <Tab.Navigator
       screenOptions={{
@@ -74,36 +117,7 @@ const TabStack = () => {
         },
         headerShown: false,
       }}
-      tabBar={props => (
-        <BottomFabBar
-          mode="default"
-          // Add Shadow for active tab bar button
-          focusedButtonStyle={{
-            shadowColor: '#000',
-            shadowOffset: {
-              width: 0,
-              height: -1,
-            },
-            shadowOpacity: 0.61,
-            shadowRadius: 8,
-            elevation: 14,
-          }}
-          // - You can add the style below to show content screen under the tab-bar
-          // - It will makes the "transparent tab bar" effect.
-          bottomBarContainerStyle={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-          }}
-          springConfig={{
-            stiffness: 1500,
-            damping: 85,
-            mass: 4,
-          }}
-          {...props}
-        />
-      )}>
+      tabBar={props => BottomFabBarIcon(props)}>
       <Tab.Screen
         options={{
           tabBarIcon: ({focused}) =>

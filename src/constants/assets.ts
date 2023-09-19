@@ -28,5 +28,9 @@ export default {
     person: require('../../assets/images/person_icon.png'),
     gear: require('../../assets/images/gear_icon.png'),
     clear: require('../../assets/images/clear_icon.png'),
+    door: require('../../assets/images/door_icon.png'),
+    fuel: require('../../assets/images/fuel_icon.png'),
+    snow: require('../../assets/images/snow_icon.png'),
+    speed: require('../../assets/images/speed_icon.png'),
   },
 };
