@@ -36,15 +36,19 @@ const styles = StyleSheet.create({
   body: {},
   search: {},
   searchInputContainer: {
+    borderWidth: 0,
     backgroundColor: searchBackground,
   },
   searchContainer: {
     borderRadius: 10,
     borderWidth: 0,
     borderColor: 'transparent',
+    borderBottomColor: 'transparent',
+    borderTopColor: 'transparent',
     backgroundColor: searchBackground,
   },
   searchInput: {
+    borderWidth: 0,
     fontFamily: 'Outfit-Regular',
     fontSize: 17,
     color: 'black',

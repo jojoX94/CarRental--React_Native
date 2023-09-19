@@ -8,6 +8,7 @@ import {useCarService} from '../../../hooks/service';
 import CarModel from '../../../models/carModel';
 import CarItemSkeleton from '../../../components/skeleton/carItemSkeleton/carItemSkeleton';
 import CarItem from '../../../components/carItem/carItem';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 function CarListScreen() {
   const [isLoading, setIsLoading] = useState(false);
@@ -98,7 +99,7 @@ function CarListScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Avatar
@@ -139,7 +140,7 @@ function CarListScreen() {
 
         {isLoading ? renderCarLoading() : renderCarList()}
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

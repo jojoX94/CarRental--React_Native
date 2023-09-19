@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
 import {Colors} from '../../constants/colors';
+import {isIOS} from '@rneui/base';
 
 const style = StyleSheet.create({
   container: {},
 
   wrapper: {
-    paddingVertical: 0,
+    paddingVertical: isIOS ? 16 : 0,
     paddingHorizontal: 11,
     flexDirection: 'row',
     gap: 8,
