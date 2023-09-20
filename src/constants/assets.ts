@@ -4,6 +4,7 @@ export default {
     welcoming: require('../../assets/images/welcoming_img.png'),
     cloud: require('../../assets/images/cloud_img.png'),
     temp_face: require('../../assets/images/temp_face_img.png'),
+    dodge: require('../../assets/images/dodge_img.png'),
   },
   icons: {
     profile: require('../../assets/images/profile_icon.png'),
@@ -32,5 +33,7 @@ export default {
     fuel: require('../../assets/images/fuel_icon.png'),
     snow: require('../../assets/images/snow_icon.png'),
     speed: require('../../assets/images/speed_icon.png'),
+    back: require('../../assets/images/back_icon.png'),
+    star: require('../../assets/images/star_icon.png'),
   },
 };

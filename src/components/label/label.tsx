@@ -4,16 +4,23 @@ import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
 type LabelProps = {
   source: ImageSourcePropType;
   label: string;
+  labelStyle?: object;
+  style?: object;
 };
 
-function Label({source, label}: LabelProps) {
+function Label({source, label, labelStyle, style}: LabelProps) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Image source={source} style={styles.img} />
-      <Text style={styles.text}>{label}</Text>
+      <Text style={[styles.text, labelStyle]}>{label}</Text>
     </View>
   );
 }
+
+Label.defaultProps = {
+  labelStyle: {},
+  style: {},
+};
 
 const styles = StyleSheet.create({
   container: {
