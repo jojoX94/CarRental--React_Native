@@ -16,6 +16,9 @@ interface CarModel {
   rating: number;
   reviewCount: number;
   numberOfSeats: number;
+  maxSpeed: number;
+  acceleration: number;
+  maxPower: number;
 }
 
 export default CarModel;

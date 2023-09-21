@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 16,
     paddingHorizontal: 16,
+    gap: 32,
   },
   header: {
     gap: 32,
@@ -59,6 +60,32 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: Colors.LIGHT_GRAY,
     opacity: 0.5,
+  },
+  body: {
+    gap: 16,
+  },
+  carSpecs: {
+    gap: 16,
+  },
+  carSpecsTop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  carSpecsTitle: {
+    fontSize: 18,
+    fontFamily: 'Poppins-SemiBold',
+    color: '#000',
+  },
+  carSpecsSeeAll: {
+    fontSize: 14,
+    fontFamily: 'Poppins-Regular',
+    color: Colors.PRIMARY,
+  },
+  carSpecsContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 
