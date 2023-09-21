@@ -42,6 +42,9 @@ class FirebaseCarProvider implements ICarProvider {
           rating: car.data().rating,
           reviewCount: car.data().reviewCount,
           numberOfSeats: car.data().numberOfSeats,
+          maxSpeed: car.data().maxSpeed,
+          acceleration: car.data().acceleration,
+          maxPower: car.data().maxPower,
         } as unknown as CarModel;
       });
     } catch (error) {

@@ -20,6 +20,9 @@ const mockData: CarModel[] = [
     rating: 4.3,
     reviewCount: 28,
     numberOfSeats: 4,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 2,
@@ -41,6 +44,9 @@ const mockData: CarModel[] = [
     rating: 4.6,
     reviewCount: 35,
     numberOfSeats: 5,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 3,
@@ -61,6 +67,9 @@ const mockData: CarModel[] = [
     rating: 4.8,
     reviewCount: 42,
     numberOfSeats: 2,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 4,
@@ -81,6 +90,9 @@ const mockData: CarModel[] = [
     rating: 4.2,
     reviewCount: 22,
     numberOfSeats: 5,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 5,
@@ -102,6 +114,9 @@ const mockData: CarModel[] = [
     rating: 4.7,
     reviewCount: 38,
     numberOfSeats: 2,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 6,
@@ -123,6 +138,9 @@ const mockData: CarModel[] = [
     rating: 4.5,
     reviewCount: 32,
     numberOfSeats: 4,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 7,
@@ -143,6 +161,9 @@ const mockData: CarModel[] = [
     rating: 4.9,
     reviewCount: 40,
     numberOfSeats: 2,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 8,
@@ -163,6 +184,9 @@ const mockData: CarModel[] = [
     rating: 4.6,
     reviewCount: 25,
     numberOfSeats: 4,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 9,
@@ -183,6 +207,9 @@ const mockData: CarModel[] = [
     rating: 4.5,
     reviewCount: 30,
     numberOfSeats: 2,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 10,
@@ -203,6 +230,9 @@ const mockData: CarModel[] = [
     rating: 4.4,
     reviewCount: 28,
     numberOfSeats: 5,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 11,
@@ -223,6 +253,9 @@ const mockData: CarModel[] = [
     rating: 4.7,
     reviewCount: 35,
     numberOfSeats: 5,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 12,
@@ -243,6 +276,9 @@ const mockData: CarModel[] = [
     rating: 4.6,
     reviewCount: 32,
     numberOfSeats: 5,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
   {
     id: 13,
@@ -263,6 +299,9 @@ const mockData: CarModel[] = [
     rating: 4.8,
     reviewCount: 38,
     numberOfSeats: 2,
+    maxSpeed: 177,
+    acceleration: 4.4,
+    maxPower: 320,
   },
 ];
 
