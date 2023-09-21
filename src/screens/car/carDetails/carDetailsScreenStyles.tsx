@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     gap: 32,
   },
+  scrollContainer: {
+    flex: 1,
+  },
   header: {
     gap: 32,
   },
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   body: {
-    gap: 16,
+    gap: 32,
   },
   carSpecs: {
     gap: 16,
@@ -86,6 +89,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  carInfo: {
+    gap: 16,
+  },
+  carInfoTop: {},
+  carInfoContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  carInfoContentLeft: {
+    gap: 12,
+  },
+  carInfoContentRight: {
+    gap: 12,
   },
 });
 
