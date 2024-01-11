@@ -19,8 +19,8 @@ import HomeBlackIcon from '../../assets/images/home_black_icon.png';
 import FavoriteBlackIcon from '../../assets/images/favorite_black_icon.png';
 import FavoriteIcon from '../../assets/images/favorite_icon.png';
 import ListIcon from '../../assets/images/list_icon2.png';
-import SettingsIcon from '../../assets/images/settings_icon.png';
-import SettingBlackIcon from '../../assets/images/settings_black_icon.png';
+import ProfileLightIcon from '../../assets/images/profile_light_icon.png';
+import ProfileBlackIcon from '../../assets/images/profile_black_icon.png';
 import NotifBlackIcon from '../../assets/images/notif_black_icon.png';
 import NotifIcon from '../../assets/images/notif_icon.png';
 import {Colors} from '../constants/colors';
@@ -161,7 +161,7 @@ const TabStack = () => {
       <Tab.Screen
         options={{
           tabBarIcon: ({focused}) =>
-            getTabBarIcon(focused, SettingsIcon, SettingBlackIcon),
+            getTabBarIcon(focused, ProfileLightIcon, ProfileBlackIcon, 27, 27),
           tabBarLabel: showLabel ? 'Wallet' : undefined,
         }}
         name="Wallet"
