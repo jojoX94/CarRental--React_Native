@@ -103,7 +103,6 @@ function CarListScreen({navigation}: any) {
   };
 
   const onPressCarItem = (car: CarModel) => {
-    console.log('CarListScreen -> car', car);
     navigation.push('CarDetailsScreen', {car});
   };
 

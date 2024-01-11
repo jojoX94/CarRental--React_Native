@@ -1,8 +1,6 @@
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import styles from './carDetailsScreenStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import TopNavigation from '../../../components/topNavigation/topNavigation';
-import {useNavigation} from '@react-navigation/native';
 import Label from '../../../components/label/label';
 import assets from '../../../constants/assets';
 import FastImage from 'react-native-fast-image';
@@ -10,7 +8,6 @@ import CarSpecItem from '../../../components/carSpecItem/carSpecItem';
 
 function CarDetailsScreen({route}: any) {
   const {car} = route.params;
-  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -18,13 +15,6 @@ function CarDetailsScreen({route}: any) {
         style={styles.scrollContainer}
         showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
-          <TopNavigation
-            title={'Car details'}
-            onBackPress={() => {
-              console.log('CarDetailsScreen -> navigation', navigation);
-              navigation.goBack();
-            }}
-          />
           <View style={styles.headerContent}>
             <View style={styles.headerText}>
               <View style={styles.headerTextLeft}>

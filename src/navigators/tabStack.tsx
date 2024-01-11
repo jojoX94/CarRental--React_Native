@@ -11,7 +11,10 @@
 import React from 'react';
 import {Text, View, Image, ImageSourcePropType} from 'react-native';
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {BottomFabBar} from 'rn-wave-bottom-bar';
 import WelcomeScreen from '../screens/welcome/welcomeScreen';
 import HomeIcon from '../../assets/images/home_icon.png';
@@ -80,6 +83,14 @@ const BottomFabBarIcon = (props: any) => {
   );
 };
 
+export const tabBarOptions: BottomTabNavigationOptions = {
+  tabBarActiveTintColor: Colors.LIGHT_GRAY,
+  tabBarInactiveTintColor: Colors.WHITE,
+  tabBarActiveBackgroundColor: Colors.WHITE,
+  tabBarInactiveBackgroundColor: Colors.WHITE,
+  headerShown: false,
+};
+
 const TabStack = () => {
   const authService = useAuthService();
   const showLabel = false;
@@ -105,67 +116,54 @@ const TabStack = () => {
       </View>
     );
   };
+
   return (
     <Tab.Navigator
-      screenOptions={{
-        tabBarActiveTintColor: Colors.LIGHT_GRAY,
-        tabBarInactiveTintColor: Colors.WHITE,
-        tabBarActiveBackgroundColor: Colors.WHITE,
-        tabBarInactiveBackgroundColor: Colors.WHITE,
-        tabBarLabelStyle: {
-          color: Colors.WHITE,
-        },
-        headerShown: false,
-      }}
+      screenOptions={tabBarOptions}
       tabBar={props => BottomFabBarIcon(props)}>
       <Tab.Screen
+        name="Home"
+        component={CarStack}
         options={{
           tabBarIcon: ({focused}) =>
             getTabBarIcon(focused, HomeIcon, HomeBlackIcon),
-          tabBarLabel: showLabel ? 'Home' : undefined,
         }}
-        name="Home"
-        component={CarStack}
       />
       <Tab.Screen
         name="Meh"
+        component={generateScreen('Meh')}
         options={{
           tabBarIcon: ({focused}) =>
             getTabBarIcon(focused, FavoriteIcon, FavoriteBlackIcon),
-          tabBarLabel: showLabel ? 'Meh' : undefined,
         }}
-        component={generateScreen('Meh')}
       />
       <Tab.Screen
+        name="Settings"
+        component={WelcomeScreen}
         options={{
           tabBarIcon: ({focused}) => getTabBarIcon(focused, ListIcon, ListIcon),
           tabBarActiveBackgroundColor: '#45014A',
           tabBarActiveTintColor: 'purple',
-          tabBarLabel: showLabel ? 'Rocket' : undefined,
         }}
-        name="Settings"
-        component={WelcomeScreen}
       />
       <Tab.Screen
+        name="Trophy"
+        component={generateScreen('Trophy')}
         options={{
           tabBarStyle: {
             display: 'none',
           },
           tabBarIcon: ({focused}) =>
             getTabBarIcon(focused, NotifIcon, NotifBlackIcon),
-          tabBarLabel: showLabel ? 'Trophy' : undefined,
         }}
-        name="Trophy"
-        component={generateScreen('Trophy')}
       />
       <Tab.Screen
+        name="Wallet"
+        component={generateScreen('Wallet')}
         options={{
           tabBarIcon: ({focused}) =>
             getTabBarIcon(focused, ProfileLightIcon, ProfileBlackIcon, 27, 27),
-          tabBarLabel: showLabel ? 'Wallet' : undefined,
         }}
-        name="Wallet"
-        component={generateScreen('Wallet')}
       />
     </Tab.Navigator>
   );
