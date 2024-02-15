@@ -1,13 +1,14 @@
 import React from 'react';
-import {Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {Text, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
 import style from './customButtonStyle';
 
 interface Props {
+  type?: 'outlined' | 'filled' | 'rounded' | 'clear';
   title: string;
   onPress: () => void;
   disabled?: boolean;
   style?: ViewStyle;
-  type?: 'outlined' | 'filled' | 'rounded' | 'clear';
+  textStyles?: TextStyle;
 }
 
 function CustomButton(props: Props) {
@@ -19,7 +20,7 @@ function CustomButton(props: Props) {
         props.type === 'outlined' && style.outlined,
         props.type === 'filled' && style.filled,
         props.type === 'rounded' && style.rounded,
-        props.style === 'clear' && style.clear,
+        props.type === 'clear' && style.clear,
         props.style,
       ]}
       onPress={props.onPress}>
@@ -29,6 +30,8 @@ function CustomButton(props: Props) {
           props.type === 'outlined' && style.outlinedTitle,
           props.type === 'filled' && style.filledTitle,
           props.type === 'rounded' && style.roundedTitle,
+          props.type === 'clear' && style.clearTitle,
+          props.textStyles,
         ]}>
         {props.title}
       </Text>
@@ -39,6 +42,7 @@ function CustomButton(props: Props) {
 CustomButton.defaultProps = {
   type: 'outlined',
   style: {},
+  textStyles: {},
   disabled: false,
 };
 

@@ -5,14 +5,25 @@ import Label from '../../../components/label/label';
 import assets from '../../../constants/assets';
 import FastImage from 'react-native-fast-image';
 import CarSpecItem from '../../../components/carSpecItem/carSpecItem';
+import {useState} from 'react';
+import CustomButton from '../../../components/button/customButton';
+import DatePicker from 'react-native-date-picker';
+import {formatDate} from '../../../utils/format/dates';
 
 function CarDetailsScreen({route}: any) {
   const {car} = route.params;
+  const [startPoint, setStartPoint] = useState('Heat Throw Airport');
+  const [endPoint, setEndPoint] = useState('Gatwick Airport');
+  const [startDate, setStartDate] = useState<Date>(new Date());
+  const [endDate, setEndDate] = useState<Date>(new Date());
+  const [pickStartDate, setPickStartDate] = useState(false);
+  const [pickEndDate, setPickEndDate] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         style={styles.scrollContainer}
+        contentContainerStyle={{paddingVertical: 28}}
         showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <View style={styles.headerContent}>
@@ -95,6 +106,73 @@ function CarDetailsScreen({route}: any) {
                 <Label
                   source={assets.icons.speed}
                   label={`Fuel info: Full to full`}
+                />
+              </View>
+            </View>
+          </View>
+          <View style={styles.ridInfo}>
+            <View style={styles.carInfoTop}>
+              <Text style={styles.carSpecsTitle}>Pick Up & Drop Off</Text>
+            </View>
+            <View style={styles.ridInfoContent}>
+              <View style={styles.ridInfoContentLeft}>
+                <CustomButton
+                  title={startPoint}
+                  onPress={() => {}}
+                  type="clear"
+                  textStyles={styles.ridPoint}
+                />
+
+                <CustomButton
+                  title={formatDate(startDate)}
+                  onPress={() => {
+                    setPickStartDate(true);
+                  }}
+                  type="clear"
+                  textStyles={styles.ridDate}
+                />
+                <DatePicker
+                  modal
+                  open={pickStartDate}
+                  date={startDate}
+                  onConfirm={date => {
+                    setPickStartDate(false);
+                    setStartDate(date);
+                  }}
+                  onCancel={() => {
+                    setPickStartDate(false);
+                  }}
+                />
+              </View>
+
+              <Image source={assets.icons.forward} style={styles.arrow} />
+
+              <View style={styles.ridInfoContentRight}>
+                <CustomButton
+                  title={endPoint}
+                  onPress={() => {}}
+                  type="clear"
+                  textStyles={styles.ridPoint}
+                />
+                <CustomButton
+                  title={formatDate(endDate)}
+                  onPress={() => {
+                    setPickEndDate(true);
+                  }}
+                  type="clear"
+                  textStyles={styles.ridDate}
+                />
+                <DatePicker
+                  modal
+                  open={pickEndDate}
+                  date={endDate}
+                  onConfirm={date => {
+                    setPickEndDate(false);
+                    setEndDate(date);
+                  }}
+                  onCancel={() => {
+                    setPickEndDate(false);
+                  }}
                 />
               </View>
             </View>

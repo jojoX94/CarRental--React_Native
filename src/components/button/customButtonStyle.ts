@@ -38,10 +38,13 @@ const style = StyleSheet.create({
     color: '#fff',
   },
   clear: {
+    height: 20,
     backgroundColor: 'transparent',
   },
   clearTitle: {
-    color: '#000',
+    fontSize: 14,
+    fontFamily: 'Poppins-Regular',
+    color: Colors.GRAY,
   },
 });
 

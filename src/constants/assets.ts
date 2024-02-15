@@ -37,5 +37,6 @@ export default {
     speed: require('../../assets/images/speed_icon.png'),
     back: require('../../assets/images/back_icon.png'),
     star: require('../../assets/images/star_icon.png'),
+    forward: require('../../assets/images/forward_icon.png'),
   },
 };

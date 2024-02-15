@@ -105,6 +105,38 @@ const styles = StyleSheet.create({
   carInfoContentRight: {
     gap: 12,
   },
+  ridInfo: {
+    gap: 16,
+  },
+  ridInfoContent: {
+    padding: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: Colors.LIGHT_GRAY,
+  },
+  ridInfoContentLeft: {
+    gap: 5,
+  },
+  ridPoint: {
+    fontSize: 16,
+    fontFamily: 'Outfit-Regular',
+    color: '#000',
+    fontWeight: '600',
+  },
+  ridDate: {
+    fontSize: 13,
+    fontFamily: 'Outfit-Regular',
+    color: Colors.TEXT_LIGHT_GRAY,
+    fontWeight: 'normal',
+  },
+  ridInfoContentRight: {},
+  arrow: {
+    width: 20,
+    height: 20,
+  },
 });
 
 export default styles;
