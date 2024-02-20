@@ -9,15 +9,46 @@ import {useState} from 'react';
 import CustomButton from '../../../components/button/customButton';
 import DatePicker from 'react-native-date-picker';
 import {formatDate} from '../../../utils/format/dates';
+import MapDialog from '../../../components/dialog/mapDialog';
+import LocationModel from '../../../models/locationModel';
 
 function CarDetailsScreen({route}: any) {
   const {car} = route.params;
-  const [startPoint, setStartPoint] = useState('Heat Throw Airport');
-  const [endPoint, setEndPoint] = useState('Gatwick Airport');
+
+  const [startLocation, setStartLocation] = useState<LocationModel>({
+    latitude: 51.5074,
+    longitude: 0.1278,
+    label: 'London, UK',
+  });
+  const [endLocation, setEndLocation] = useState<LocationModel>({
+    latitude: 51.5074,
+    longitude: 0.1278,
+    label: 'London, UK',
+  });
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [pickStartDate, setPickStartDate] = useState(false);
   const [pickEndDate, setPickEndDate] = useState(false);
+  const [showStartLocation, setShowStartLocation] = useState(false);
+  const [showEndLocation, setShowEndLocation] = useState(false);
+
+  const toggleStartLocation = () => {
+    setShowStartLocation(!showStartLocation);
+  };
+
+  const toggleEndLocation = () => {
+    setShowEndLocation(!showEndLocation);
+  };
+
+  const handleSaveStartLocation = (location: LocationModel) => {
+    setStartLocation(location);
+    setShowStartLocation(false);
+  };
+
+  const handleSaveEndLocation = (location: LocationModel) => {
+    setEndLocation(location);
+    setShowEndLocation(false);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -117,17 +148,15 @@ function CarDetailsScreen({route}: any) {
             <View style={styles.ridInfoContent}>
               <View style={styles.ridInfoContentLeft}>
                 <CustomButton
-                  title={startPoint}
-                  onPress={() => {}}
+                  title={startLocation.label}
                   type="clear"
                   textStyles={styles.ridPoint}
+                  onPress={() => setShowStartLocation(true)}
                 />
 
                 <CustomButton
                   title={formatDate(startDate)}
-                  onPress={() => {
-                    setPickStartDate(true);
-                  }}
+                  onPress={toggleEndLocation}
                   type="clear"
                   textStyles={styles.ridDate}
                 />
@@ -149,8 +178,8 @@ function CarDetailsScreen({route}: any) {
 
               <View style={styles.ridInfoContentRight}>
                 <CustomButton
-                  title={endPoint}
-                  onPress={() => {}}
+                  title={endLocation.label}
+                  onPress={() => setShowEndLocation(true)}
                   type="clear"
                   textStyles={styles.ridPoint}
                 />
@@ -177,6 +206,20 @@ function CarDetailsScreen({route}: any) {
               </View>
             </View>
           </View>
+          <MapDialog
+            title="Select Start Location"
+            visible={showStartLocation}
+            onClose={toggleStartLocation}
+            onSave={handleSaveStartLocation}
+            initialLocation={startLocation}
+          />
+          <MapDialog
+            title="Select End Location"
+            visible={showEndLocation}
+            onClose={toggleEndLocation}
+            onSave={handleSaveEndLocation}
+            initialLocation={endLocation}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

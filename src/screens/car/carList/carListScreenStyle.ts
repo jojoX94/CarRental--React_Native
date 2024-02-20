@@ -53,7 +53,9 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: 'black',
   },
-  list: {},
+  list: {
+    marginTop: 16,
+  },
 });
 
 export default styles;
