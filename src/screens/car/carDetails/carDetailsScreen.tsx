@@ -151,12 +151,14 @@ function CarDetailsScreen({route}: any) {
                   title={startLocation.label}
                   type="clear"
                   textStyles={styles.ridPoint}
-                  onPress={() => setShowStartLocation(true)}
+                  onPress={() => setPickStartDate(true)}
                 />
 
                 <CustomButton
                   title={formatDate(startDate)}
-                  onPress={toggleEndLocation}
+                  onPress={() => {
+                    setPickStartDate(true);
+                  }}
                   type="clear"
                   textStyles={styles.ridDate}
                 />
@@ -179,7 +181,7 @@ function CarDetailsScreen({route}: any) {
               <View style={styles.ridInfoContentRight}>
                 <CustomButton
                   title={endLocation.label}
-                  onPress={() => setShowEndLocation(true)}
+                  onPress={() => setPickEndDate(true)}
                   type="clear"
                   textStyles={styles.ridPoint}
                 />
@@ -206,6 +208,8 @@ function CarDetailsScreen({route}: any) {
               </View>
             </View>
           </View>
+
+          {/* Dont't remove these MapDialogs  even if it's useless . It's just for references anothers projects */}
           <MapDialog
             title="Select Start Location"
             visible={showStartLocation}
