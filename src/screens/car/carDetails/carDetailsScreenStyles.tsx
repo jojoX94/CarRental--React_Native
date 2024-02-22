@@ -137,6 +137,41 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
   },
+  footer: {
+    marginTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  footerLeftTitle: {
+    fontSize: 18,
+    fontFamily: 'Poppins-SemiBold',
+    color: Colors.TEXT_LIGHT_GRAY,
+  },
+  footerLeft: {
+    gap: 5,
+  },
+  footerLeftContent: {
+    flexDirection: 'row',
+  },
+  footerLeftContentPrice: {
+    fontSize: 24,
+    fontFamily: 'Inter-SemiBold',
+    color: '#000',
+  },
+  footerLeftContentPriceDay: {
+    fontSize: 24,
+    fontFamily: 'Poppins-Medium',
+    color: Colors.TEXT_LIGHT_GRAY,
+  },
+  footerRight: {
+    borderRadius: 10,
+  },
+  footerRightText: {
+    fontSize: 18,
+    fontFamily: 'Poppins-SemiBold',
+    color: Colors.WHITE,
+  },
 });
 
 export default styles;

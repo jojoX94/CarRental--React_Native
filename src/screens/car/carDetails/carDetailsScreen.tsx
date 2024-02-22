@@ -207,6 +207,25 @@ function CarDetailsScreen({route}: any) {
                 />
               </View>
             </View>
+
+            <View style={styles.footer}>
+              <View style={styles.footerLeft}>
+                <Text style={styles.footerLeftTitle}>Total</Text>
+                <View style={styles.footerLeftContent}>
+                  <Text style={styles.footerLeftContentPrice}>
+                    ${car.price}
+                  </Text>
+                  <Text style={styles.footerLeftContentPriceDay}>/d</Text>
+                </View>
+              </View>
+              <CustomButton
+                style={styles.footerRight}
+                textStyles={styles.footerRightText}
+                type="filled"
+                title="Book Now"
+                onPress={() => {}}
+              />
+            </View>
           </View>
 
           {/* Dont't remove these MapDialogs  even if it's useless . It's just for references anothers projects */}
