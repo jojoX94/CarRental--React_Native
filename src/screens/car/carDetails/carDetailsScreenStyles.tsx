@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     backgroundColor: Colors.WHITE,
   },
-  headerImage: {},
+  headerImage: {
+    justifyContent: 'center',
+  },
   image: {
     width: '100%',
     height: 250,

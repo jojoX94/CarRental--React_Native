@@ -1320,6 +1320,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hauvo/react-native-360-image-viewer@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@hauvo/react-native-360-image-viewer/-/react-native-360-image-viewer-1.0.0.tgz#97fae5857871b6ae8839a3db7a68c6fdb5a663da"
+  integrity sha512-Img/Fw6Ul0wHNZsHkXcBgNBy57tedUrON+iaz2+ayExWQ4edEsIBsHwhNgCvXzHKJIHgvJy/wSdWg1uHdExGTw==
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.10.tgz#5a3ffe32cc9306365fb3fd572596cd602d5e12d2"

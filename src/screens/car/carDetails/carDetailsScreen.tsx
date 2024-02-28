@@ -3,7 +3,6 @@ import styles from './carDetailsScreenStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Label from '../../../components/label/label';
 import assets from '../../../constants/assets';
-import FastImage from 'react-native-fast-image';
 import CarSpecItem from '../../../components/carSpecItem/carSpecItem';
 import {useState} from 'react';
 import CustomButton from '../../../components/button/customButton';
@@ -11,6 +10,7 @@ import DatePicker from 'react-native-date-picker';
 import {formatDate} from '../../../utils/format/dates';
 import MapDialog from '../../../components/dialog/mapDialog';
 import LocationModel from '../../../models/locationModel';
+import Image360Viewer from '@hauvo/react-native-360-image-viewer';
 
 function CarDetailsScreen({route}: any) {
   const {car} = route.params;
@@ -75,10 +75,10 @@ function CarDetailsScreen({route}: any) {
               </View>
             </View>
             <View style={styles.headerImage}>
-              <Image
-                source={assets.images.dodge}
-                style={styles.image}
-                resizeMode={FastImage.resizeMode.contain}
+              <Image360Viewer
+                srcset={assets.images.cars}
+                width={350}
+                height={200}
               />
               <View style={styles.swipe}>
                 <View style={styles.swipeItemFocus} />
