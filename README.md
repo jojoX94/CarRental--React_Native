@@ -1,79 +1,55 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# CarRental
 
-# Getting Started
+![Downloads](https://img.shields.io/github/downloads/jojoX94/CarRental--React_Native/total) ![Contributors](https://img.shields.io/github/contributors/jojoX94/CarRental--React_Native?color=dark-green) ![Forks](https://img.shields.io/github/forks/jojoX94/CarRental--React_Native?style=social) ![Issues](https://img.shields.io/github/issues/jojoX94/CarRental--React_Native)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+![logo](/assets/Logo/horizontal.png)
 
-## Step 1: Start the Metro Server
+CarRental is a mobile application developed using React Native that allows users to rent cars. This README provides an overview of the project, its features, setup instructions, and other relevant information.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Features
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- User Authentication: Utilizes Firebase Authentication to allow users to sign up, log in, and manage their accounts securely.
+- Car Management: Users can browse available cars, view details, and rent them as per their requirements.
+- Booking Management: Allows users to view their booking history, manage active bookings, and cancel bookings.
+- Search and Filter: Provides search and filter options to help users find cars based on their preferences such as model, make, year, etc.
+- Responsive Design: Built with React Native, ensuring a smooth and responsive user experience across different devices.
+- Android only
 
-```bash
-# using npm
-npm start
+## Demo
 
-# OR using Yarn
-yarn start
-```
+- Authentification
 
-## Step 2: Start your Application
+<img src="assets/images/auth.gif" width="256" height="427">
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+- Car details
 
-### For Android
+<img src="assets/images/car.gif" width="256" height="427">
 
-```bash
-# using npm
-npm run android
+## Contributing
 
-# OR using Yarn
-yarn android
-```
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### For iOS
+- If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/jojoX94/CarRental--React_Native/issues/new) to discuss it, or directly create a pull request after you edit the _README.md_ file with necessary changes.
+- Please make sure you check your spelling and grammar.
+- Create individual PR for each suggestion.
+- Please also read through the [Code Of Conduct](https://github.com/jojoX94/CarRental--React_Native/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
 
-```bash
-# using npm
-npm run ios
+### Creating A Pull Request
 
-# OR using Yarn
-yarn ios
-```
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Happy coding.:-)
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## License
 
-## Step 3: Modifying your App
+Distributed under the MIT License. See [LICENSE](https://github.com/jojoX94/CarRental--React_Native/blob/main/LICENSE.md) for more information.
 
-Now that you have successfully run the app, let's modify it.
+## Acknowledgements
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [destiny chigozie](https://www.figma.com/@omekara)
+- [FETTAH Zahra amal](https://www.figma.com/@amdesigerpro)
